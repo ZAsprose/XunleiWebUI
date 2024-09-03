@@ -1,0 +1,64 @@
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div style="width: 100%">
+    <input id="magnetlink" style="width: 100%" />
+</div>
+<div>
+    <button onclick="addXunleiTask()">Add Task</button>
+    <script>
+        function addXunleiTask() {
+            //var defaultmagUrl = "magnet:?xt=urn:btih:d45307ed6ff65d70e55dc21fa7f3218ab968604d&tr=http%3a%2f%2ft.nyaatracker.com%2fannounce&tr=http%3a%2f%2ftracker.kamigami.org%3a2710%2fannounce&tr=http%3a%2f%2fshare.camoe.cn%3a8080%2fannounce&tr=http%3a%2f%2fopentracker.acgnx.se%2fannounce&tr=http%3a%2f%2fanidex.moe%3a6969%2fannounce&tr=http%3a%2f%2ft.acg.rip%3a6699%2fannounce&tr=https%3a%2f%2ftr.bangumi.moe%3a9696%2fannounce&tr=udp%3a%2f%2ftr.bangumi.moe%3a6969%2fannounce&tr=http%3a%2f%2fopen.acgtracker.com%3a1096%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce";
+            var magnet = document.getElementById("magnetlink").value.trim();
+            /*console.log(magnet);
+            if (magnet === "")
+            {
+                magnet = defaultmagUrl;
+            }
+            console.log("add task");
+            console.log(magnet);*/
+            $.ajax({
+                url: '@Url.Action("AddXunleiDownloadTask", "Home")',
+                type: 'POST',
+                data: { magenet: magnet },
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (xhr, status, error) {
+
+                }
+            });
+        }
+    </script>
+</div>
+
+
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>
